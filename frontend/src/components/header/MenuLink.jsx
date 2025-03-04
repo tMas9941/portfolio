@@ -1,18 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-scroll";
 
 export default function MenuLink({ text, to }) {
+	const [toggled, setToggled] = useState(false);
+
 	return (
 		<Link
-			className="group px-3 flex flex-cols gap-1 cursor-pointer items-center active:text-primary h-full"
+			className={`group px-3 flex gap-1 cursor-pointer items-center h-full text-text select-none `}
 			to={to}
 			smooth={true}
 			spy={true}
-			duration={400}
-			offset={-100}
+			hashSpy={true}
+			duration={600}
+			// offset={-65}
+			id={`${to}Link`}
+			onSetActive={() => setToggled(true)}
+			onSetInactive={() => setToggled(false)}
 		>
-			<div className="w-1 me-1 bg-primary h-0 group-hover:h-5 origin-center transition-all duration-150 ease-in rounded"></div>
-			<p className="text-text group-hover:text-primary text-xl ">{text}</p>
+			<div
+				className={`${
+					toggled ? "h-5" : "h-0"
+				} bg-primary w-1 me-1 origin-center transition-all duration-150 ease-in rounded`}
+			></div>
+			<p className={`group-hover:text-primary text-xl `}>{text}</p>
 		</Link>
 	);
 }
