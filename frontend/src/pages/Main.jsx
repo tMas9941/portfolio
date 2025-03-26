@@ -8,7 +8,7 @@ import Contact from "../components/body/contact/Contact.jsx";
 
 export default function Main() {
 	return (
-		<div className="pt-16 min-h-screen bg-background  text-text text-lg/6 flex flex-col items-center">
+		<div className="min-h-screen bg-background  text-text text-lg/6 flex flex-col items-center">
 			<About />
 			<Skills />
 			<Projects />
